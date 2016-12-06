@@ -15,7 +15,11 @@
         <td><%= product.price %></td>
         <td><%= product.stock %></td>
         <td>
-          <%= link_to 'Comprar', '#'%>
+          <% if current_user %>
+            <%= form_for [product, Order.new] do |f| %>
+              <%= f.submit 'Comprar'%>
+            <% end %>
+          <% end %>
         </td>
       </tr>
     <% end %>

@@ -9,10 +9,11 @@
 Product.destroy_all
 Category.destroy_all
 
-c = Category.create(name: 'Teléfono')
-Product.create(name: 'Galaxy 6', stock: 10, category: c)
-Product.create(name: 'Galaxy 5', stock: 5, category: c)
-Product.create(name: 'Iphone 6', stock: 10, category: c)
+c = Category.create name: 'Teléfono'
+
+Product.create(name: 'Galaxy 6', price: 1_234, stock: 10, category: c)
+Product.create(name: 'Galaxy 5', price: 65_433, stock: 5, category: c)
+Product.create(name: 'Iphone 6', price: 94_839, stock: 10, category: c)
 
 c = Category.create(name: 'Notebooks')
-Product.create(name: 'Macbook Pro', stock: 20, category: c)
+Product.create(name: 'Macbook Pro', price: 1_200_000, stock: 20, category: c)
