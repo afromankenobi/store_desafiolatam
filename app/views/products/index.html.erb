@@ -1,0 +1,23 @@
+<h1>Products#index</h1>
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Photo</th>
+    <th>Price</th>
+    <th>Stock</th>
+    <th colspan="3">Actions</th>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.photo %></td>
+        <td><%= product.price %></td>
+        <td><%= product.stock %></td>
+        <td>
+          <%= link_to 'Comprar', '#'%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
