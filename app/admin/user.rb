@@ -1,5 +1,4 @@
 ActiveAdmin.register User do
-
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -14,7 +13,7 @@ ActiveAdmin.register User do
 # end
 
   form do |f|
-    inputs "Agrega un usuario" do
+    inputs 'Agrega un usuario' do
       input :email
       input :password
     end
@@ -25,9 +24,9 @@ ActiveAdmin.register User do
 
   controller do
     def update
-      if (params[:user][:password].blank? && params[:user][:password_confirmation].blank?)
-        params[:user].delete("password")
-        params[:user].delete("password_confirmation")
+      if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+        params[:user].delete('password')
+        params[:user].delete('password_confirmation')
       end
 
       super
