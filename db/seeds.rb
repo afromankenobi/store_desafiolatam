@@ -17,3 +17,9 @@ Product.create(name: 'Iphone 6', price: 94_839, stock: 10, category: c)
 
 c = Category.create(name: 'Notebooks')
 Product.create(name: 'Macbook Pro', price: 1_200_000, stock: 20, category: c)
+
+AdminUser.create!(
+  email: 'jv.vargass@gmail.com',
+  password: '12345678',
+  password_confirmation: '12345678'
+)
