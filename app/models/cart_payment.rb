@@ -1,4 +1,4 @@
-class Payment < ApplicationRecord
+class CartPayment < ApplicationRecord
   belongs_to :cart
 
   after_create :close_cart!

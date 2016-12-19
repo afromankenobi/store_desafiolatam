@@ -9,7 +9,13 @@ Rails.application.routes.draw do
   end
 
   resources :carts, only: [:show] do
-    resources :payments, only: [:create]
+    resources :cart_payments, only: [:create] do
+      collection do
+        get 'done'
+        get 'cancel'
+        get 'payments'
+      end
+    end
   end
 
   root 'products#index'

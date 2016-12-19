@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206201235) do
+ActiveRecord::Schema.define(version: 20161217002057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(version: 20161206201235) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "cart_payments", force: :cascade do |t|
+    t.string   "total"
+    t.integer  "cart_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_cart_payments_on_cart_id", using: :btree
+  end
+
   create_table "carts", force: :cascade do |t|
     t.integer  "total_amount"
     t.integer  "status",       default: 0
@@ -68,14 +76,6 @@ ActiveRecord::Schema.define(version: 20161206201235) do
     t.datetime "updated_at", null: false
     t.index ["cart_id"], name: "index_orders_on_cart_id", using: :btree
     t.index ["product_id"], name: "index_orders_on_product_id", using: :btree
-  end
-
-  create_table "payments", force: :cascade do |t|
-    t.string   "total"
-    t.integer  "cart_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cart_id"], name: "index_payments_on_cart_id", using: :btree
   end
 
   create_table "products", force: :cascade do |t|
@@ -107,9 +107,9 @@ ActiveRecord::Schema.define(version: 20161206201235) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "cart_payments", "carts"
   add_foreign_key "carts", "users"
   add_foreign_key "orders", "carts"
   add_foreign_key "orders", "products"
-  add_foreign_key "payments", "carts"
   add_foreign_key "products", "categories"
 end
