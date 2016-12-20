@@ -1,7 +1,7 @@
 class Cart < ApplicationRecord
   has_many :orders
   has_many :products, through: :orders
-  has_one :payment
+  has_one :cart_payment
   belongs_to :user
 
   enum status: [:opened, :closed]

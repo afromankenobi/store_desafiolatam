@@ -19,8 +19,8 @@
   </tbody>
 </table>
 
-<% if @cart.payment.blank? %>
-  <%= form_for [@cart, Payment.new]  do |f| %>
+<% unless @cart.cart_payment && @cart.cart_payment.payed? %>
+  <%= form_for [@cart, CartPayment.new]  do |f| %>
     <%= f.submit "Pagar", class: "btn btn-primary" %>
   <% end %>
 <% else %>

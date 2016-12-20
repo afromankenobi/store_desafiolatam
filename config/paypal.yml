@@ -1,0 +1,16 @@
+test: &default
+
+  # Credentials for REST APIs
+  client_id: Ac-P5DJ0jhqBFT2m5OF7lbrkn8wHXw8cn6_kZuR1OrOnHjbOkiBcLqo8iXZgNl4nUh5HHpSe_CMkWMeO
+  client_secret: ELTDbykWwDvEK1BUvDqyVDBLtfkep3vzAPtOqKxny3Ha18m7Xuc3xlyZ4yLONRcoyDk8stybg-9xIWEf
+
+  # Mode can be 'live' or 'sandbox'
+  mode: sandbox
+  sandbox_email_address: me@jorgevargas.info
+
+development:
+  <<: *default
+
+production:
+  <<: *default
+  mode: live
