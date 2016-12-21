@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  scope :dashboard, as: :dashboard do
+    root 'dashboard#index'
+    get 'index', to: 'dashboard#index'
+  end
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
