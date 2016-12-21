@@ -52,3 +52,5 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
 gem 'paypal-sdk-rest'
+gem 'chartkick'
+gem 'groupdate'

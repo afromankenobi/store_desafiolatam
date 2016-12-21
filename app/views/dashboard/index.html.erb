@@ -1,0 +1,22 @@
+<h1>Dashboard#index</h1>
+<p>Primer gráfico</p>
+
+<%= javascript_include_tag "https://www.google.com/jsapi", "chartkick" %>
+
+<h2>Productos por categorías</h2>
+<%= pie_chart @categories %>
+
+<h2>Productos creados por día</h2>
+<%= line_chart @products_by_day %>
+
+<h2>Productos más ordenados</h2>
+<%= column_chart @products_by_order %>
+
+<h2>Productos más pagados</h2>
+<%= column_chart @payed_products %>
+
+<h2>Ingresos por producto</h2>
+<%= column_chart @money_products %>
+
+<h2>Ingresos por día</h2>
+<%= line_chart @money_by_day %>
